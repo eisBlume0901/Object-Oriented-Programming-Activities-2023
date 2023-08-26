@@ -90,7 +90,7 @@ public class Activity1
             return Integer.parseInt(s.substring(1, s.length() - 1));
         else if (s.matches("\\d+.*\\d+"))
         {
-            String modified = s.replaceAll(".*?(\\d+)\\D*(\\d+).*", "$1$2");
+            String modified = s.replaceAll("[^\\d]", "");
             if (isValidNumber(modified))
                 return Integer.parseInt(modified);
         }
