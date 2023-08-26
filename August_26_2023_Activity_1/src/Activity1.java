@@ -14,9 +14,7 @@ public class Activity1
                 "jrkiif", "lakts", "7jfk11");
         List<Integer> result1 = stringList1
                 .stream()
-                .filter(element -> hasRepeatingCharacters(element))
-                // [abs, alksjr, lo2k4, koshr, 1ksjf, lakts]
-                .filter(element -> isPalindrome(element))
+                .filter(element -> hasRepeatingCharacters(element) || isPalindrome(element))
                 // [abs, alksjr, lo2k4, koshr, 1ksjf, lakts]
                 .map(element -> element.length())
                 // [3, 6, 5, 5, 5, 5]
@@ -84,10 +82,8 @@ public class Activity1
     // Methods for Question 2
     public static Integer convertToNumber(String s)
     {
-        if (isValidNumber(s))
-            return Integer.parseInt(s);
-        else if (isValidNumber(s.substring(1, s.length() - 1)))
-            return Integer.parseInt(s.substring(1, s.length() - 1));
+        if (isValidNumber(s)) return Integer.parseInt(s);
+        else if (isValidNumber(s.substring(1, s.length() - 1))) return Integer.parseInt(s.substring(1, s.length() - 1));
         else if (s.matches("\\d+.*\\d+"))
         {
             String modified = s.replaceAll("[^\\d]", "");
@@ -97,7 +93,8 @@ public class Activity1
         return null;
     }
 
-    public static boolean isValidNumber(String s) {
+    public static boolean isValidNumber(String s)
+    {
         return s.matches("\\d+");
     }
 
