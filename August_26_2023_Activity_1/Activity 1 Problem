@@ -1,0 +1,33 @@
+Lesson:
+Functional Interface and built in (Function, Predicate, Customer, Supplier)
+Lambda Expressions with Stream API Pipeline
+Stream (Sequential processing) vs Parallel (Same-time processing, Time consuming and kills all resources) Stream
+Overview of Encapsulation, Inheritance, Polymorphism, Abstraction
+
+
+Create the following pipelines using Stream API:
+
+1. Given a list of string [abs, cdd, eert, alksjr, lo2k4, lol, se2es, kfhf, koshr, lksjf, jrkiif, lakts, 7jfkll],
+identify all elements with repeating letters/characters (the position does not matter) and all palindrome elements.
+Calculate the length of each identified element and save it to a list of integers. Filter out all numbers divisible
+by 2 then return the remaining elements.
+
+
+2. Given a list of string [1110002, 9338das, 23ds2s, 23jf0, sjfgei, 129shf, jgoru, 12345, mjshfkro, 0974j1n, hjsj,
+i123h, kshf93, hjsgfk], identify all elements that can be converted to numbers without changes, with changes such
+as removing first and last character of the element and removing characters sandwiched between numbers. Return the
+result as list of integers.
+
+[1110002, 9338das, 23ds2s, 23jf0, sjfgei, 129shf, jgoru, 12345, mjshfkro, 0974j1n, hjsj, i123h, kshf93, hjsgfk]
+
+3. Given a list of integer [3, 5, 60, 234, 123, 445, 65301, 5609657, 234235, 345968, 99936099, 123400234, 123500436,
+25460346, 54356, 880888]. Get the significant digits of each element and convert it to letters of the alphabet by using
+the placement of each letter. Return the values in reverse.
+
+4. Given a list of string [cunanan, ong, anecito, manalo, gallardo, jusi, bisan, sauquillo, tomate, de guia].
+Identify elements with higher vowels than consonants, if the vowels and consonants are equal in occurrence, then
+replace one letter for each with a random letter and test again whether the result will change. Return the values
+in reverse and element in reverse order.
+
+Deadline 08/26/2023 11:59pm
+
