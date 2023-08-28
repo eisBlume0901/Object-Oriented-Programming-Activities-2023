@@ -15,13 +15,10 @@ public class Activity1
         List<Integer> result1 = stringList1
                 .stream()
                 .filter(element -> hasRepeatingCharacters(element) || isPalindrome(element))
-                // [abs, alksjr, lo2k4, koshr, 1ksjf, lakts]
                 .map(element -> element.length())
-                // [3, 6, 5, 5, 5, 5]
                 .filter(length -> length % 2 != 0)
-                // [3, 5]
                 .collect(Collectors.toList());
-        out.println(result1); // [3, 5]
+        out.println(result1); // [3, 3, 5]
 
         // Question 2
         List<String> stringList2 = Arrays.asList
@@ -44,9 +41,7 @@ public class Activity1
         List<String> result3 = integerList3
                 .stream()
                 .map(element -> getSignificantDigits(element))
-                // [1, 1, 1, 3, 3, 3, 5, 7, 6, 6, 8, 9, 9, 8, 5, 6]
                 .map(element -> convertToAlphabetCharacters(element))
-                // [a, a, a, c, c, c, e, g, f, f, h, i, i, h, e, f]
                 .collect(Collectors.collectingAndThen(Collectors.toList(), list ->
                 {
                     Collections.reverse(list);
