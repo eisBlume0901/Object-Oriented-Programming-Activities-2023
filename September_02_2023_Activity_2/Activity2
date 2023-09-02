@@ -1,0 +1,26 @@
+Lesson:
+Encapsulation
+Getters and Setters
+Constructor
+Method cascading
+
+Create a program that will accept the Ff details
+
+Last name
+First name
+Middle name
+Payment method
+Credit card number (16 digits)
+CVV (3 digits)
+CC expiry (mm/yy)
+Gcash number
+Gcash Mpin
+Address
+
+You can add additional detail related above.
+Create a process where the user will view a mini sari sari store items.
+Make the user select among items available and calculate the total amount the user purchased.
+The user can choose whether the payment method is credit card or gcash. If the user choose to
+pay using gcash, ask the ider his/her mpin, if incorrect, ask again the user, display the users
+gcash number and fullname (replace every letter to * with index is divisible by 2). Otherwise,
+display the last four digit of the cc number and expiry. Print the receipt with the format below:
