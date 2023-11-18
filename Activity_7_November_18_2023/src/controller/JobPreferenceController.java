@@ -14,9 +14,11 @@ public class JobPreferenceController
     private List<CompanyFactory> companyFactoryList;
     private UserInterface userInterface;
 
+    private Job job;
     public JobPreferenceController()
     {
         this.scanner = new Scanner(in);
+        this.job = new Job();
         this.userInterface = new UserInterface();
         this.person = new Person();
         this.companyFactoryList = new ArrayList<>();
@@ -35,6 +37,25 @@ public class JobPreferenceController
             company.offerJob(type);
             String result = company.isHiringJob(type);
             out.println(result);
+        }
+    }
+
+    public void findJobFromACompany(String companyName, String jobName)
+    {
+        for (CompanyFactory company : companyFactoryList)
+        {
+            if (company.getName().equalsIgnoreCase(companyName))
+            {
+                List<Job> jobs = company.getJobHiringPositionList();
+
+                for (Job job : jobs)
+                {
+                    if (job.toString().equalsIgnoreCase(jobName))
+                    {
+                        this.job = job;
+                    }
+                }
+            }
         }
     }
 
@@ -67,15 +88,19 @@ public class JobPreferenceController
         }
     }
 
-    public JobLevel getJobLevel()
+    public JobLevel getJobLevelBeingApplied()
     {
+        userInterface.displayJobLevel();
         int userChoice = userInterface.validChoice(Integer.parseInt(scanner.nextLine()), 1, 3);
 
         switch (userChoice)
         {
-            case 1: return JobLevel.ENTRY;
-            case 2: return JobLevel.MID;
-            default: return JobLevel.SENIOR;
+            case 1:
+                return JobLevel.ENTRY;
+            case 2:
+                return JobLevel.MID;
+            default:
+                return JobLevel.SENIOR;
         }
     }
     public void enterPersonalDetails()
@@ -112,9 +137,18 @@ public class JobPreferenceController
                 break;
             default:
                 out.println("Invalid job type");
-
         }
     }
 
+
+    public void runJobLevelSystem()
+    {
+        out.println("What job? ");
+        String jobType = scanner.nextLine();
+        findJobFromACompany("Accenture", "Accountant");
+        this.job = new Job.JobBuilder().setJobLevel(getJobLevelBeingApplied()).build();
+        out.println(this.job.getJobLevel());
+
+    }
 
 }

@@ -4,7 +4,7 @@ import model.company.*;
 
 import static java.lang.System.*;
 
-public class Accountant extends Job implements SalaryGenerator {
+public class Accountant extends Job {
 
 
     @Override

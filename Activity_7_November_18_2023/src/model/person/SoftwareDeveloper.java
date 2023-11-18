@@ -4,7 +4,7 @@ import model.company.*;
 
 import static java.lang.System.out;
 
-public class SoftwareDeveloper implements SalaryGenerator
+public class SoftwareDeveloper extends Job implements SalaryGenerator
 {
     @Override
     public void generateSalaryRange(JobLevel jobLevel) {

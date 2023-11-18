@@ -1,7 +1,8 @@
 package model.company;
 
-import model.person.Accountant;
-import model.person.SoftwareDeveloper;
+import model.person.*;
+
+import java.util.List;
 
 
 public class Accenture extends CompanyFactory
@@ -19,11 +20,12 @@ public class Accenture extends CompanyFactory
             Job defaultAccountantJob = new Job.JobBuilder()
                     .setJobType("Accountant")
                     .build();
-            addJob(defaultAccountantJob);
+//            addJob(defaultAccountantJob);
 
-            Job accountantJob = new Accountant().clone();
+            Job accountantJob = new Accountant();
             System.out.println("You are applying as an " + accountantJob.toString());
-
+            accountantJob.generateSalaryRange(JobLevel.ENTRY);
+            addJob(accountantJob);
             return accountantJob;
         }
         else if (jobType.equals("Software Developer"))
@@ -51,12 +53,15 @@ public class Accenture extends CompanyFactory
 
     @Override
     public String isHiringJob(String jobType) {
-        for (Job job : getJobHiringPositionList()) {
-            if (job.getJobType().equalsIgnoreCase(jobType)) {
-                return getName();
+
+        for (Job job : getJobHiringPositionList())
+        {
+            if (job.toString().equalsIgnoreCase(jobType))
+            {
+                return this.getName();
             }
         }
-        return "No Job available at " + getName();
+        return "No " + jobType + " found in " + this.getName();
     }
 
 }

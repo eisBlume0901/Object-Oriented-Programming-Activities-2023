@@ -2,7 +2,7 @@ package model.company;
 
 import model.person.EducationalLevel;
 
-public class Job implements Cloneable {
+public class Job implements Cloneable, SalaryGenerator {
 
     private String jobType;
     private EducationalLevel educationalLevel;
@@ -43,7 +43,7 @@ public class Job implements Cloneable {
         return requirements;
     }
 
-    protected Job clone()
+    public Job clone()
     {
         try
         {
@@ -55,6 +55,13 @@ public class Job implements Cloneable {
             throw new RuntimeException(cloneNotSupportedException);
         }
     }
+
+    @Override
+    public void generateSalaryRange(JobLevel jobLevel) {
+
+        System.out.println("No salary for default job");
+    }
+
     public static class JobBuilder
     {
         private String jobType;
