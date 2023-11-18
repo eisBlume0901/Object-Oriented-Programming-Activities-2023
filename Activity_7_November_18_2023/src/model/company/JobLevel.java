@@ -1,4 +1,4 @@
-package domain.company;
+package model.company;
 
 public enum JobLevel
 {

@@ -1,24 +1,28 @@
-package domain.company;
+package model.company;
 
-import java.util.*;
+import model.person.Accountant;
+
 
 public class Accenture extends CompanyFactory
 {
-    private List<String> jobHiringList;
-
     public Accenture()
     {
-        this.jobHiringList = new ArrayList<>();
+        super("Accenture");
+
     }
     @Override
     protected Job createJob(String jobType)
     {
         if (jobType.equalsIgnoreCase("Accountant"))
         {
-            Job accountantJob = new Job.JobBuilder()
+            Job defaultAccountantJob = new Job.JobBuilder()
                     .setJobType("Accountant")
                     .build();
-            jobHiringList.add(accountantJob.toString());
+            addJob(defaultAccountantJob);
+
+            Job accountantJob = new Accountant().clone();
+            System.out.println("You are hiring as an " + accountantJob.toString());
+
             return accountantJob;
         }
         else if (jobType.equals("Software Developer"))
@@ -26,7 +30,7 @@ public class Accenture extends CompanyFactory
             Job softwareDeveloperJob = new Job.JobBuilder()
                     .setJobType("Software Developer")
                     .build();
-            jobHiringList.add(softwareDeveloperJob.toString());
+            addJob(softwareDeveloperJob);
             return softwareDeveloperJob;
         }
         else if (jobType.equals("Human Resources Manager"))
@@ -35,20 +39,20 @@ public class Accenture extends CompanyFactory
                     .setJobType("Human Resources Manager")
                     .build();
 
-            jobHiringList.add(humanResourcesManagerJob.toString());
+            addJob(humanResourcesManagerJob);
             return humanResourcesManagerJob;
         }
         else return null;
     }
 
-    public void displayJobHiringPositions()
-    {
-        for (String jobPositions : jobHiringList)
-            System.out.println(jobPositions);
+    @Override
+    public String isHiringJob(String jobType) {
+        for (Job job : getJobHiringPositionList()) {
+            if (job.getJobType().equalsIgnoreCase(jobType)) {
+                return getName();
+            }
+        }
+        return "No Job available at " + getName();
     }
 
-    @Override
-    public String toString() {
-        return "Accenture";
-    }
 }

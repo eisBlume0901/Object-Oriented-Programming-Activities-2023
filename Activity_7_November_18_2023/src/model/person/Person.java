@@ -1,4 +1,4 @@
-package domain.person;
+package model.person;
 
 public class Person
 {

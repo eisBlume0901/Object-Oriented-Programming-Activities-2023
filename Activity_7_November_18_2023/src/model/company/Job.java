@@ -1,8 +1,8 @@
-package domain.company;
+package model.company;
 
-import domain.person.EducationalLevel;
+import model.person.EducationalLevel;
 
-public class Job {
+public class Job implements Cloneable {
 
     private String jobType;
     private EducationalLevel educationalLevel;
@@ -19,6 +19,42 @@ public class Job {
     }
 
 
+    public String getJobType() {
+        return jobType;
+    }
+
+    public EducationalLevel getEducationalLevel() {
+        return educationalLevel;
+    }
+
+    public JobLevel getJobLevel() {
+        return jobLevel;
+    }
+
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public String getResponsibilities() {
+        return responsibilities;
+    }
+
+    public String getRequirements() {
+        return requirements;
+    }
+
+    protected Job clone()
+    {
+        try
+        {
+            return (Job) super.clone();
+        }
+        catch (CloneNotSupportedException cloneNotSupportedException)
+        {
+            cloneNotSupportedException.printStackTrace();
+            throw new RuntimeException(cloneNotSupportedException);
+        }
+    }
     public static class JobBuilder
     {
         private String jobType;
@@ -28,10 +64,9 @@ public class Job {
         private String responsibilities;
         private String requirements;
 
-        public JobBuilder(){
+        public JobBuilder() {
 
         }
-
 
         public JobBuilder setJobType(String jobType)
         {

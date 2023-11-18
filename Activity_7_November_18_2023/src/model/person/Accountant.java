@@ -1,10 +1,12 @@
-package domain.person;
+package model.person;
 
-import domain.company.*;
+import model.company.*;
 
-import static java.lang.System.out;
+import static java.lang.System.*;
 
-public class HumanResourcesManager implements SalaryGenerator {
+public class Accountant extends Job implements SalaryGenerator {
+
+
     @Override
     public void generateSalaryRange(JobLevel jobLevel) {
 
@@ -14,5 +16,11 @@ public class HumanResourcesManager implements SalaryGenerator {
             case MID -> out.println("Php 25,000 - Php 40,000");
             default -> out.println("Php 40,000 - above");
         }
+    }
+
+
+    @Override
+    public String toString() {
+        return "Accountant";
     }
 }

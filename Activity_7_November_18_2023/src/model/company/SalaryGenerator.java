@@ -1,6 +1,4 @@
-package domain.company;
-
-import domain.company.JobLevel;
+package model.company;
 
 public interface SalaryGenerator
 {

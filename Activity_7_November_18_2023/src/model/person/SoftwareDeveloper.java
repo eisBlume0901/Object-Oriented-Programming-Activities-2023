@@ -1,6 +1,6 @@
-package domain.person;
+package model.person;
 
-import domain.company.*;
+import model.company.*;
 
 import static java.lang.System.out;
 
