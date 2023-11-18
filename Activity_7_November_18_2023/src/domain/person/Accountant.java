@@ -6,7 +6,8 @@ import domain.company.SalaryGenerator;
 
 import static java.lang.System.*;
 
-public class Accountant extends Job implements SalaryGenerator {
+public class Accountant implements SalaryGenerator {
+
 
     @Override
     public void generateSalaryRange(JobLevel jobLevel) {

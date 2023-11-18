@@ -2,11 +2,11 @@ package domain.company;
 
 import java.util.*;
 
-public class SyCipGorresVelayoAndCo extends CompanyFactory
+public class Accenture extends CompanyFactory
 {
     private List<String> jobHiringList;
 
-    public SyCipGorresVelayoAndCo()
+    public Accenture()
     {
         this.jobHiringList = new ArrayList<>();
     }
@@ -29,6 +29,15 @@ public class SyCipGorresVelayoAndCo extends CompanyFactory
             jobHiringList.add(softwareDeveloperJob.toString());
             return softwareDeveloperJob;
         }
+        else if (jobType.equals("Human Resources Manager"))
+        {
+            Job humanResourcesManagerJob = new Job.JobBuilder()
+                    .setJobType("Human Resources Manager")
+                    .build();
+
+            jobHiringList.add(humanResourcesManagerJob.toString());
+            return humanResourcesManagerJob;
+        }
         else return null;
     }
 
@@ -40,6 +49,6 @@ public class SyCipGorresVelayoAndCo extends CompanyFactory
 
     @Override
     public String toString() {
-        return "SGV & Co.";
+        return "Accenture";
     }
 }
