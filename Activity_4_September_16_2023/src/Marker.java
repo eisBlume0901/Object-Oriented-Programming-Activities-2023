@@ -1,4 +1,4 @@
-public abstract class Marker
+public abstract class  Marker
 {
     private final String color;
     private final String ink;
