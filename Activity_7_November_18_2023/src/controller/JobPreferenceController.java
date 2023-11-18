@@ -50,7 +50,7 @@ public class JobPreferenceController
 
                 for (Job job : jobs)
                 {
-                    if (job.toString().equalsIgnoreCase(jobName))
+                    if (job.getJobType().equalsIgnoreCase(jobName))
                     {
                         this.job = job;
                     }

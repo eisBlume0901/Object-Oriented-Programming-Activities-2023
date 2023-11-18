@@ -22,7 +22,7 @@ public class Accenture extends CompanyFactory
                     .build();
 //            addJob(defaultAccountantJob);
 
-            Job accountantJob = new Accountant();
+            Job accountantJob = new Accountant().clone();
             System.out.println("You are applying as an " + accountantJob.toString());
             accountantJob.generateSalaryRange(JobLevel.ENTRY);
             addJob(accountantJob);
