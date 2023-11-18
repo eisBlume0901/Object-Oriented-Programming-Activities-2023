@@ -1,6 +1,7 @@
 package model.company;
 
 import model.person.Accountant;
+import model.person.SoftwareDeveloper;
 
 
 public class Accenture extends CompanyFactory
@@ -21,7 +22,7 @@ public class Accenture extends CompanyFactory
             addJob(defaultAccountantJob);
 
             Job accountantJob = new Accountant().clone();
-            System.out.println("You are hiring as an " + accountantJob.toString());
+            System.out.println("You are applying as an " + accountantJob.toString());
 
             return accountantJob;
         }
@@ -31,6 +32,9 @@ public class Accenture extends CompanyFactory
                     .setJobType("Software Developer")
                     .build();
             addJob(softwareDeveloperJob);
+
+            Job softwareDevelopmentJob = new SoftwareDeveloper().clone();
+
             return softwareDeveloperJob;
         }
         else if (jobType.equals("Human Resources Manager"))

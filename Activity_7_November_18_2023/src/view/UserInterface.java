@@ -10,6 +10,7 @@ public class UserInterface implements Validator
     {
         this.scanner = new Scanner(in);
     }
+
     public void displayAskUserDetails()
     {
         out.println("What is your name?");

@@ -1,6 +1,4 @@
 import controller.JobPreferenceController;
-import model.company.Accenture;
-import model.company.Job;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,8 +6,6 @@ public class Main {
 
         JobPreferenceController jobPreferenceController = new JobPreferenceController();
         jobPreferenceController.runJobPreferenceSystem();
-
-
 
     }
 }

@@ -38,14 +38,66 @@ public class JobPreferenceController
         }
     }
 
+    public String getCourseName()
+    {
+        int userChoice = userInterface.validChoice(Integer.parseInt(scanner.nextLine()), 1, 8);
+        switch(userChoice)
+        {
+            case 1: return "Accountancy";
+            case 2: return "Business and Management";
+            case 3: return "Marketing Management";
+            case 4: return "Finance Management";
+            case 5: return "Computer Science";
+            case 6: return "Information Technology";
+            case 7: return "Computer Engineering";
+            case 8: return "Psychology";
+            default: return "Course Degree is not available";
+        }
+    }
+
+    public EducationalLevel getEducationalLevel()
+    {
+        int userChoice = userInterface.validChoice(Integer.parseInt(scanner.nextLine()), 1, 3);
+
+        switch (userChoice)
+        {
+            case 1: return EducationalLevel.BACHELOR;
+            case 2: return EducationalLevel.MASTERAL;
+            default: return EducationalLevel.DOCTORAL;
+        }
+    }
+
+    public JobLevel getJobLevel()
+    {
+        int userChoice = userInterface.validChoice(Integer.parseInt(scanner.nextLine()), 1, 3);
+
+        switch (userChoice)
+        {
+            case 1: return JobLevel.ENTRY;
+            case 2: return JobLevel.MID;
+            default: return JobLevel.SENIOR;
+        }
+    }
+    public void enterPersonalDetails()
+    {
+        userInterface.displayAskUserDetails();
+        String applicant = scanner.nextLine();
+        person.setName(applicant);
+
+        userInterface.displayCourseNames();
+        person.setCourseName(getCourseName());
+
+        userInterface.displayEducationalLevel();
+        person.setEducationalLevel(getEducationalLevel());
+
+    }
 
     public void runJobPreferenceSystem()
     {
         addAllCompanies();
-        // Integer.parseInt(scanner.nextLine())
         userInterface.displayJobType();
 
-        int userChoice = userInterface.validChoice(1, 1, 3);
+        int userChoice = userInterface.validChoice(Integer.parseInt(scanner.nextLine()), 1, 3);
 
         switch (userChoice)
         {
