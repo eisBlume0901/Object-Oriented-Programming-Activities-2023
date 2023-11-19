@@ -179,15 +179,19 @@ public class JobPreferenceController
                 findCompaniesBasedOnJobType("Accountant");
                 person.setDesiredJob("Accountant");
                 userInterface.displayAccountantJobResponsibilities();
-
+                userInterface.displayAccountantJobRequirements();
                 break;
             case 2:
                 findCompaniesBasedOnJobType("Software Developer");
                 person.setDesiredJob("Software Developer");
+                userInterface.displaySoftwareDeveloperJobResponsibilities();
+                userInterface.displaySoftwareDeveloperJobRequirements();
                 break;
             case 3:
                 findCompaniesBasedOnJobType("Human Resources Manager");
                 person.setDesiredJob("Human Resources Manager");
+                userInterface.displayHumanResourcesManagerJobResponsibilities();
+                userInterface.displayHumanResourcesManagerRequirements();
                 break;
             default:
                 out.println("Invalid job type");
