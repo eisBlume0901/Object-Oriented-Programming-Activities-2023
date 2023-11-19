@@ -2,11 +2,13 @@ package model.company;
 
 import model.person.*;
 
-public class Accenture extends CompanyFactory
+
+public class PhilAmLife extends CompanyFactory
 {
-    public Accenture()
+    public PhilAmLife()
     {
-        super("Accenture");
+        super("Phil-Am Life");
+
     }
     @Override
     protected Job createJob(String jobType)
@@ -59,6 +61,7 @@ public class Accenture extends CompanyFactory
         }
         else return null;
     }
+
     @Override
     public String isHiringJob(String jobType) {
 

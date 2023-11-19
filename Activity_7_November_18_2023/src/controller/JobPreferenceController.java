@@ -15,6 +15,8 @@ public class JobPreferenceController
     private UserInterface userInterface;
     private Job job;
     private Accountant accountant;
+    private SoftwareDeveloper softwareDev;
+    private HumanResourcesManager humanResourceManager;
     public JobPreferenceController()
     {
         this.scanner = new Scanner(in);
@@ -23,6 +25,8 @@ public class JobPreferenceController
         this.person = new Person();
         this.companyFactoryList = new ArrayList<>();
         this.accountant = new Accountant();
+        this.softwareDev = new SoftwareDeveloper();
+        this.humanResourceManager = new HumanResourcesManager();
     }
 
 
@@ -52,6 +56,14 @@ public class JobPreferenceController
     {
         CompanyFactory accenture = new Accenture();
         companyFactoryList.add(accenture);
+        CompanyFactory canva = new Canva();
+        companyFactoryList.add(canva);
+        CompanyFactory citiBank = new Citibank();
+        companyFactoryList.add(citiBank);
+        CompanyFactory pbcom = new PBCOM();
+        companyFactoryList.add(pbcom);
+        CompanyFactory philAmLife = new PhilAmLife();
+        companyFactoryList.add(philAmLife);
     }
 
     public void findCompaniesBasedOnJobType(String type) {
@@ -92,7 +104,6 @@ public class JobPreferenceController
                     else out.println(company.getName() + " does not have a job for " + jobName);
                 }
             }
-            else out.println(companyName + " is not found in the system");
         }
     }
 
@@ -181,18 +192,18 @@ public class JobPreferenceController
         }
     }
 
-
-    public void runJobLevelSystem()
-    {
-
-    }
-
     public void work()
     {
         switch (person.getDesiredJob())
         {
             case "Accountant":
                 accountantWork();
+                break;
+            case "Sofware Developer":
+                softwareDevWork();
+                break;
+            case "Human Resource Manager":
+                humanResourceManagerWork();
                 break;
             default:
                 out.println("Nothing to do");
@@ -201,6 +212,7 @@ public class JobPreferenceController
 
     public void accountantWork()
     {
+
         accountant.addInvoice("Invoice #001");
         accountant.addInvoice("Invoice #002");
 
@@ -211,5 +223,23 @@ public class JobPreferenceController
         accountant.printExpenseList();
 
         accountant.generateFinancialReport();
+    }
+    public void softwareDevWork(){
+        softwareDev.addInvoice("01234");
+        softwareDev.recordExpense(25000);
+
+        softwareDev.printInvoiceList();
+        softwareDev.printExpenseList();
+
+        softwareDev.generateFinancialReport();
+    }
+    public void humanResourceManagerWork(){
+        humanResourceManager.addInvoice("56789");
+        humanResourceManager.recordExpense(18000);
+
+        humanResourceManager.printInvoiceList();
+        humanResourceManager.printExpenseList();
+
+        humanResourceManager.generateFinancialReport();
     }
 }

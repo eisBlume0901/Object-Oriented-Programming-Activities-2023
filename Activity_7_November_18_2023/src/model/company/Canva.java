@@ -1,16 +1,15 @@
 package model.company;
-
 import model.person.*;
 
-public class Accenture extends CompanyFactory
-{
-    public Accenture()
-    {
-        super("Accenture");
+import java.util.List;
+
+public class Canva extends CompanyFactory {
+    public Canva() {
+        super("Canva");
     }
+
     @Override
-    protected Job createJob(String jobType)
-    {
+    protected Job createJob(String jobType) {
         if (jobType.equalsIgnoreCase("Accountant"))
         {
             Job defaultAccountantJob = new Job.JobBuilder()
@@ -30,24 +29,6 @@ public class Accenture extends CompanyFactory
             addJob(accountantJob);
             return accountantJob;
         }
-        if (jobType.equals("Software Developer"))
-        {
-            Job defaultSoftwareDeveloperJob = new Job.JobBuilder()
-                    .setJobType("Software Developer")
-                    .setResponsibilities("")
-                    .setRequirements("Computer Science \n Computer Engineering \n Information Technology")
-                    .setEducationalLevel(EducationalLevel.BACHELOR)
-                    .setJobLevel(JobLevel.ENTRY)
-                    .build();
-
-            Job softwareDeveloperJob = defaultSoftwareDeveloperJob.clone();
-            softwareDeveloperJob = new SoftwareDeveloper();
-            softwareDeveloperJob.setJobType("Software Developer");
-            softwareDeveloperJob.setEducationalLevel(EducationalLevel.BACHELOR);
-            softwareDeveloperJob.setRequirements("Computer Science \n Computer Engineering \n Information Technology");
-
-            return softwareDeveloperJob;
-        }
         if (jobType.equals("Human Resources Manager"))
         {
             Job humanResourcesManagerJob = new Job.JobBuilder()
@@ -59,9 +40,9 @@ public class Accenture extends CompanyFactory
         }
         else return null;
     }
+
     @Override
     public String isHiringJob(String jobType) {
-
         for (Job job : getJobHiringPositionList())
         {
             if (job.toString().equalsIgnoreCase(jobType))
@@ -71,5 +52,4 @@ public class Accenture extends CompanyFactory
         }
         return "No " + jobType + " found in " + this.getName();
     }
-
 }

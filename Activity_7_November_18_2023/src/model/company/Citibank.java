@@ -2,11 +2,13 @@ package model.company;
 
 import model.person.*;
 
-public class Accenture extends CompanyFactory
+
+public class Citibank extends CompanyFactory
 {
-    public Accenture()
+    public Citibank()
     {
-        super("Accenture");
+        super("Citibank");
+
     }
     @Override
     protected Job createJob(String jobType)
@@ -44,8 +46,9 @@ public class Accenture extends CompanyFactory
             softwareDeveloperJob = new SoftwareDeveloper();
             softwareDeveloperJob.setJobType("Software Developer");
             softwareDeveloperJob.setEducationalLevel(EducationalLevel.BACHELOR);
+            softwareDeveloperJob.setResponsibilities("Coding " + this.getName());
             softwareDeveloperJob.setRequirements("Computer Science \n Computer Engineering \n Information Technology");
-
+            addJob(softwareDeveloperJob);
             return softwareDeveloperJob;
         }
         if (jobType.equals("Human Resources Manager"))
@@ -59,6 +62,7 @@ public class Accenture extends CompanyFactory
         }
         else return null;
     }
+
     @Override
     public String isHiringJob(String jobType) {
 
