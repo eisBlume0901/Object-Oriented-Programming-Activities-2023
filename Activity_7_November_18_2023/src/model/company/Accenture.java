@@ -46,19 +46,27 @@ public class Accenture extends CompanyFactory
             softwareDeveloperJob.setEducationalLevel(EducationalLevel.BACHELOR);
             softwareDeveloperJob.setRequirements("Computer Science \n Computer Engineering \n Information Technology");
 
+            
             addJob(softwareDeveloperJob);
-            addJob(softwareDeveloperJob);
+
             return softwareDeveloperJob;
         }
         if (jobType.equals("Human Resources Manager"))
         {
-            Job humanResourcesManagerJob = new Job.JobBuilder()
+            Job defaultHumanResourcesManagerJob = new Job.JobBuilder()
                     .setJobType("Human Resources Manager")
-                    .setResponsibilities("Responsibilities: Developing and implementing HR strategies and initiatives aligned with the overall business strategy, managing the recruitment and selection process, supporting current and future business needs through the development, engagement, motivation and preservation of human capital, nurturing a positive working environment, overseeing and managing a performance appraisal system that drives high performance, ensuring legal compliance throughout human resource management.")
-                    .setRequirements("Job Requirements:\\n- Strong MS Excel skills\\n- Excellent recruitment skills\\n- Strong work ethic and motivation\\n- 5 years management experience\\n- Excellent planning and execution skills\\n- Performance management experience")
+                    .setResponsibilities("Managing employment and new recruits for" + this.getName())
+                    .setRequirements("Psychology")
                     .setEducationalLevel(EducationalLevel.BACHELOR)
                     .setJobLevel(JobLevel.MID)
                     .build();
+
+            Job humanResourcesManagerJob = defaultHumanResourcesManagerJob.clone();
+            humanResourcesManagerJob = new HumanResourcesManager();
+            humanResourcesManagerJob.setJobType("Human Resources Manager");
+            humanResourcesManagerJob.setResponsibilities("Managing employment and new recruits for" + this.getName());
+            humanResourcesManagerJob.setRequirements("Psychology");
+            humanResourcesManagerJob.setEducationalLevel(EducationalLevel.BACHELOR);
 
             addJob(humanResourcesManagerJob);
             return humanResourcesManagerJob;
@@ -66,4 +74,14 @@ public class Accenture extends CompanyFactory
         else return null;
     }
 
+    @Override
+    public void isHiringJob(String jobType) {
+        for (Job job : getJobHiringPositionList())
+        {
+            if (job.toString().equalsIgnoreCase(jobType))
+            {
+                System.out.println(this.getName());
+            }
+        }
+    }
 }

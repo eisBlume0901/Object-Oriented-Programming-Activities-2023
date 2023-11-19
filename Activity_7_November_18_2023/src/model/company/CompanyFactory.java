@@ -38,4 +38,5 @@ public abstract class CompanyFactory
     }
 
 
+    public abstract void isHiringJob(String jobType);
 }

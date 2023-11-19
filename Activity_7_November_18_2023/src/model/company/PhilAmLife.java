@@ -57,13 +57,20 @@ public class PhilAmLife extends CompanyFactory
         }
         if (jobType.equals("Human Resources Manager"))
         {
-            Job humanResourcesManagerJob = new Job.JobBuilder()
+            Job defaultHumanResourcesManagerJob = new Job.JobBuilder()
                     .setJobType("Human Resources Manager")
-                    .setResponsibilities("Responsibilities: Designing algorithms and flowcharts, producing clean, efficient code based on specifications, integrating software components and third-party programs, verifying and deploying programs and systems, troubleshooting, debugging and upgrading existing software, gathering and evaluating user feedback.")
-                    .setRequirements("Computer Science \n Computer Engineering \n Information Technology")
+                    .setResponsibilities("Managing employment and new recruits for" + this.getName())
+                    .setRequirements("Psychology")
                     .setEducationalLevel(EducationalLevel.BACHELOR)
                     .setJobLevel(JobLevel.ENTRY)
                     .build();
+
+            Job humanResourcesManagerJob = defaultHumanResourcesManagerJob.clone();
+            humanResourcesManagerJob = new HumanResourcesManager();
+            humanResourcesManagerJob.setJobType("Human Resources Manager");
+            humanResourcesManagerJob.setResponsibilities("Managing employment and new recruits for" + this.getName());
+            humanResourcesManagerJob.setRequirements("Psychology");
+            humanResourcesManagerJob.setEducationalLevel(EducationalLevel.BACHELOR);
 
             addJob(humanResourcesManagerJob);
             return humanResourcesManagerJob;
