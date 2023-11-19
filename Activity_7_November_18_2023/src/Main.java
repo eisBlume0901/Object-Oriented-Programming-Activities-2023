@@ -6,8 +6,9 @@ public class Main {
 //        JobPreferenceController jobPreferenceController = new JobPreferenceController();
 //        jobPreferenceController.enterPersonalDetails();
 //        jobPreferenceController.runJobPreferenceSystem();
-//        jobPreferenceController.runJobLevelSystem();
 //        jobPreferenceController.work();
+
+
 
         JobPreferenceController jobPreferenceController = new JobPreferenceController();
         jobPreferenceController.start();

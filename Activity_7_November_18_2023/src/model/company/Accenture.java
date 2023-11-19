@@ -9,10 +9,8 @@ public class Accenture extends CompanyFactory
         super("Accenture");
     }
     @Override
-    protected Job createJob(String jobType)
-    {
-        if (jobType.equalsIgnoreCase("Accountant"))
-        {
+    protected Job createJob(String jobType) {
+        if (jobType.equalsIgnoreCase("Accountant")) {
             Job defaultAccountantJob = new Job.JobBuilder()
                     .setJobType("Accountant")
                     .setResponsibilities("Managing and reporting financial information for " + this.getName())
@@ -30,8 +28,7 @@ public class Accenture extends CompanyFactory
             addJob(accountantJob);
             return accountantJob;
         }
-        if (jobType.equals("Software Developer"))
-        {
+        if (jobType.equals("Software Developer")) {
             Job defaultSoftwareDeveloperJob = new Job.JobBuilder()
                     .setJobType("Software Developer")
                     .setResponsibilities("Responsibilities: Designing algorithms and flowcharts, producing clean, efficient code based on specifications, integrating software components and third-party programs, verifying and deploying programs and systems, troubleshooting, debugging and upgrading existing software, gathering and evaluating user feedback.")
@@ -47,11 +44,9 @@ public class Accenture extends CompanyFactory
             softwareDeveloperJob.setRequirements("Computer Science \n Computer Engineering \n Information Technology");
 
             addJob(softwareDeveloperJob);
-            addJob(softwareDeveloperJob);
             return softwareDeveloperJob;
         }
-        if (jobType.equals("Human Resources Manager"))
-        {
+        if (jobType.equals("Human Resources Manager")) {
             Job humanResourcesManagerJob = new Job.JobBuilder()
                     .setJobType("Human Resources Manager")
                     .setResponsibilities("Responsibilities: Developing and implementing HR strategies and initiatives aligned with the overall business strategy, managing the recruitment and selection process, supporting current and future business needs through the development, engagement, motivation and preservation of human capital, nurturing a positive working environment, overseeing and managing a performance appraisal system that drives high performance, ensuring legal compliance throughout human resource management.")
@@ -62,8 +57,7 @@ public class Accenture extends CompanyFactory
 
             addJob(humanResourcesManagerJob);
             return humanResourcesManagerJob;
-        }
-        else return null;
+        } else return null;
     }
 
 }

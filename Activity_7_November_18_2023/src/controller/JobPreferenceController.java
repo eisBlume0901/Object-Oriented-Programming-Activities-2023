@@ -32,14 +32,15 @@ public class JobPreferenceController
 
     public void start()
     {
+
         enterPersonalDetails();
+        addAllCompanies();
         runJobPreferenceSystem();
 
 
         out.println("Which company you would like to apply? ");
         String preferredCompany = scanner.nextLine();
         JobLevel jobLevel = getJobLevelBeingApplied();
-        findJobFromACompany(preferredCompany, person.getDesiredJob(), person.getEducationalLevel(), person.getCourseName());
 
         if (preferredCompany.matches(".*[aeiouAEIOU].*"))
         {
@@ -56,12 +57,16 @@ public class JobPreferenceController
     {
         CompanyFactory accenture = new Accenture();
         companyFactoryList.add(accenture);
+
         CompanyFactory canva = new Canva();
         companyFactoryList.add(canva);
+
         CompanyFactory citiBank = new Citibank();
         companyFactoryList.add(citiBank);
+
         CompanyFactory pbcom = new PBCOM();
         companyFactoryList.add(pbcom);
+
         CompanyFactory philAmLife = new PhilAmLife();
         companyFactoryList.add(philAmLife);
     }
@@ -71,43 +76,10 @@ public class JobPreferenceController
         out.println();
         out.println("List of Companies: ");
         for (CompanyFactory company : companyFactoryList) {
-
-            company.offerJob(type);
-            for (Job job : company.getJobHiringPositionList())
-            {
-                out.println(company.getName());
-            }
+            this.job = company.offerJob(type);
+            out.println(company.getName());
         }
-    }
-
-    public void findJobFromACompany(String companyName,
-                                    String jobName,
-                                    EducationalLevel educationalLevel,
-                                    String requirement)
-    {
-        for (CompanyFactory company : companyFactoryList)
-        {
-            if (company.getName().equalsIgnoreCase(companyName))
-            {
-                List<Job> jobs = company.getJobHiringPositionList();
-
-                for (Job job : jobs)
-                {
-                    if (job.toString().equalsIgnoreCase(jobName))
-                    {
-                        this.job = job;
-                        out.println(jobName + " is available at " + company.getName());
-                        if (job.getEducationalLevel().equals(educationalLevel)
-                        && job.getRequirements().contains(requirement))
-                        {
-                            out.println("You match the job requirements offered by " + company.getName());
-                            break;
-                        }
-                    }
-                    else out.println(company.getName() + " does not have a job for " + jobName);
-                }
-            }
-        }
+        companyFactoryList.clear();
     }
 
 
@@ -171,34 +143,36 @@ public class JobPreferenceController
 
     public void runJobPreferenceSystem()
     {
-        addAllCompanies();
         userInterface.displayJobType();
 
         int userChoice = userInterface.validChoice(1, 3);
 
+        String jobType = null;
         switch (userChoice)
         {
             case 1:
-                findCompaniesBasedOnJobType("Accountant");
-                person.setDesiredJob("Accountant");
+                jobType = "Accountant";
+                person.setDesiredJob(jobType);
                 userInterface.displayAccountantJobResponsibilities();
                 userInterface.displayAccountantJobRequirements();
                 break;
             case 2:
-                findCompaniesBasedOnJobType("Software Developer");
-                person.setDesiredJob("Software Developer");
+                jobType = "Software Developer";
+                person.setDesiredJob(jobType);
                 userInterface.displaySoftwareDeveloperJobResponsibilities();
                 userInterface.displaySoftwareDeveloperJobRequirements();
                 break;
             case 3:
-                findCompaniesBasedOnJobType("Human Resources Manager");
-                person.setDesiredJob("Human Resources Manager");
+                jobType = "Human Resources Manager";
+                person.setDesiredJob(jobType);
                 userInterface.displayHumanResourcesManagerJobResponsibilities();
                 userInterface.displayHumanResourcesManagerRequirements();
                 break;
             default:
                 out.println("Invalid job type");
         }
+        findCompaniesBasedOnJobType(jobType);
+
     }
 
     public void work()
@@ -216,6 +190,7 @@ public class JobPreferenceController
                 break;
             default:
                 out.println("Nothing to do");
+                break;
         }
     }
 
