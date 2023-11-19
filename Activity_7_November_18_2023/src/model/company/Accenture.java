@@ -2,9 +2,6 @@ package model.company;
 
 import model.person.*;
 
-import java.util.List;
-
-
 public class Accenture extends CompanyFactory
 {
     public Accenture()

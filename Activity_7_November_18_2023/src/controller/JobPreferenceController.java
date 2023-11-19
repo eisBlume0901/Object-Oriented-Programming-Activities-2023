@@ -26,6 +26,28 @@ public class JobPreferenceController
     }
 
 
+    public void start()
+    {
+        enterPersonalDetails();
+        runJobPreferenceSystem();
+
+
+        out.println("Which company you would like to apply? ");
+        String preferredCompany = scanner.nextLine();
+        JobLevel jobLevel = getJobLevelBeingApplied();
+        findJobFromACompany(preferredCompany, person.getDesiredJob(), person.getEducationalLevel(), person.getCourseName());
+
+        if (preferredCompany.matches(".*[aeiouAEIOU].*"))
+        {
+            start();
+        }
+        else
+        {
+            out.println(this.job.getJobType());
+            this.job.generateSalaryRange(jobLevel);
+            work();
+        }
+    }
     public void addAllCompanies()
     {
         CompanyFactory accenture = new Accenture();
@@ -162,12 +184,7 @@ public class JobPreferenceController
 
     public void runJobLevelSystem()
     {
-        out.println("Which company you would like to apply? ");
-        String companyName = scanner.nextLine();
-        JobLevel jobLevel = getJobLevelBeingApplied();
-        findJobFromACompany(companyName, person.getDesiredJob(), person.getEducationalLevel(), person.getCourseName());
-        out.println(this.job.getJobType());
-        this.job.generateSalaryRange(jobLevel);
+
     }
 
     public void work()

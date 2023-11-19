@@ -81,5 +81,7 @@ public class UserInterface implements Validator
     }
 
     public void displayHumanResourcesManagerRequirements()
-    {}
+    {
+
+    }
 }
