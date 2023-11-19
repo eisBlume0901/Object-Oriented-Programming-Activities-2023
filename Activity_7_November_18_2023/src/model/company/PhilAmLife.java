@@ -36,7 +36,7 @@ public class PhilAmLife extends CompanyFactory
         {
             Job defaultSoftwareDeveloperJob = new Job.JobBuilder()
                     .setJobType("Software Developer")
-                    .setResponsibilities("")
+                    .setResponsibilities("Responsibilities: Designing algorithms and flowcharts, producing clean, efficient code based on specifications, integrating software components and third-party programs, verifying and deploying programs and systems, troubleshooting, debugging and upgrading existing software, gathering and evaluating user feedback.")
                     .setRequirements("Computer Science \n Computer Engineering \n Information Technology")
                     .setEducationalLevel(EducationalLevel.BACHELOR)
                     .setJobLevel(JobLevel.ENTRY)
@@ -54,6 +54,10 @@ public class PhilAmLife extends CompanyFactory
         {
             Job humanResourcesManagerJob = new Job.JobBuilder()
                     .setJobType("Human Resources Manager")
+                    .setResponsibilities("Responsibilities: Designing algorithms and flowcharts, producing clean, efficient code based on specifications, integrating software components and third-party programs, verifying and deploying programs and systems, troubleshooting, debugging and upgrading existing software, gathering and evaluating user feedback.")
+                    .setRequirements("Computer Science \n Computer Engineering \n Information Technology")
+                    .setEducationalLevel(EducationalLevel.BACHELOR)
+                    .setJobLevel(JobLevel.ENTRY)
                     .build();
 
             addJob(humanResourcesManagerJob);
