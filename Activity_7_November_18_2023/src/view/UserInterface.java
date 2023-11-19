@@ -1,5 +1,6 @@
 package view;
 
+import java.util.*;
 import static java.lang.System.*;
 
 public class UserInterface implements Validator
@@ -54,33 +55,33 @@ public class UserInterface implements Validator
                 """);
     }
 
-//    public void displayAccountantJobResponsibilities()
-//    {
-//
-//    }
-//
-//    public void displaySoftwareDeveloperJobResponsibilities()
-//    {
-//
-//    }
-//
-//    public void displayHumanResourcesManagerJobResponsibilities()
-//    {
-//
-//    }
-//
-//    public void displayAccountantJobRequirements()
-//    {
-//
-//    }
-//
-//    public void displaySoftwareDeveloperJobRequirements()
-//    {
-//
-//    }
-//
-//    public void displayHumanResourcesManagerRequirements()
-//    {
-//
-//    }
+    public void displayAccountantJobResponsibilities()
+    {
+
+    }
+
+    public void displaySoftwareDeveloperJobResponsibilities()
+    {
+
+    }
+
+    public void displayHumanResourcesManagerJobResponsibilities()
+    {
+
+    }
+
+    public void displayAccountantJobRequirements()
+    {
+
+    }
+
+    public void displaySoftwareDeveloperJobRequirements()
+    {
+
+    }
+
+    public void displayHumanResourcesManagerRequirements()
+    {
+
+    }
 }

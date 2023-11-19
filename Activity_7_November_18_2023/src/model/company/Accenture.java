@@ -1,6 +1,7 @@
 package model.company;
 
 import model.person.*;
+import view.UserInterface;
 
 public class Accenture extends CompanyFactory
 {
