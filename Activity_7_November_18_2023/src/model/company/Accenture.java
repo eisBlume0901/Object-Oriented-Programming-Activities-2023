@@ -46,6 +46,8 @@ public class Accenture extends CompanyFactory
             softwareDeveloperJob.setEducationalLevel(EducationalLevel.BACHELOR);
             softwareDeveloperJob.setRequirements("Computer Science \n Computer Engineering \n Information Technology");
 
+            addJob(softwareDeveloperJob);
+
             return softwareDeveloperJob;
         }
         if (jobType.equals("Human Resources Manager"))

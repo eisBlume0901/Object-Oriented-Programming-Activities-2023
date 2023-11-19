@@ -36,7 +36,7 @@ public class PhilAmLife extends CompanyFactory
         {
             Job defaultSoftwareDeveloperJob = new Job.JobBuilder()
                     .setJobType("Software Developer")
-                    .setResponsibilities("")
+                    .setResponsibilities("Coding " + this.getName())
                     .setRequirements("Computer Science \n Computer Engineering \n Information Technology")
                     .setEducationalLevel(EducationalLevel.BACHELOR)
                     .setJobLevel(JobLevel.ENTRY)
@@ -48,6 +48,7 @@ public class PhilAmLife extends CompanyFactory
             softwareDeveloperJob.setEducationalLevel(EducationalLevel.BACHELOR);
             softwareDeveloperJob.setRequirements("Computer Science \n Computer Engineering \n Information Technology");
 
+            addJob(softwareDeveloperJob);
             return softwareDeveloperJob;
         }
         if (jobType.equals("Human Resources Manager"))

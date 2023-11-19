@@ -36,7 +36,7 @@ public class Citibank extends CompanyFactory
         {
             Job defaultSoftwareDeveloperJob = new Job.JobBuilder()
                     .setJobType("Software Developer")
-                    .setResponsibilities("")
+                    .setResponsibilities("Coding " + this.getName())
                     .setRequirements("Computer Science \n Computer Engineering \n Information Technology")
                     .setEducationalLevel(EducationalLevel.BACHELOR)
                     .setJobLevel(JobLevel.ENTRY)
