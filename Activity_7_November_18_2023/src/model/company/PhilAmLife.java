@@ -11,10 +11,8 @@ public class PhilAmLife extends CompanyFactory
 
     }
     @Override
-    protected Job createJob(String jobType)
-    {
-        if (jobType.equalsIgnoreCase("Accountant"))
-        {
+    protected Job createJob(String jobType) {
+        if (jobType.equalsIgnoreCase("Accountant")) {
             Job defaultAccountantJob = new Job.JobBuilder()
                     .setJobType("Accountant")
                     .setResponsibilities("Managing and reporting financial information for " + this.getName())
@@ -32,8 +30,7 @@ public class PhilAmLife extends CompanyFactory
             addJob(accountantJob);
             return accountantJob;
         }
-        if (jobType.equals("Software Developer"))
-        {
+        if (jobType.equals("Software Developer")) {
             Job defaultSoftwareDeveloperJob = new Job.JobBuilder()
                     .setJobType("Software Developer")
 
@@ -55,8 +52,7 @@ public class PhilAmLife extends CompanyFactory
             addJob(softwareDeveloperJob);
             return softwareDeveloperJob;
         }
-        if (jobType.equals("Human Resources Manager"))
-        {
+        if (jobType.equals("Human Resources Manager")) {
             Job defaultHumanResourcesManagerJob = new Job.JobBuilder()
                     .setJobType("Human Resources Manager")
                     .setResponsibilities("Managing employment and new recruits for" + this.getName())
@@ -74,20 +70,7 @@ public class PhilAmLife extends CompanyFactory
 
             addJob(humanResourcesManagerJob);
             return humanResourcesManagerJob;
-        }
-        else return null;
-    }
-
-    @Override
-    public void isHiringJob(String jobType) {
-
-        for (Job job : getJobHiringPositionList())
-        {
-            if (job.toString().equalsIgnoreCase(jobType))
-            {
-                System.out.println(this.getName());
-            }
-        }
+        } else return null;
     }
 
 }

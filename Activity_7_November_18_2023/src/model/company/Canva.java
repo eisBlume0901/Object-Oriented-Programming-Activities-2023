@@ -1,8 +1,6 @@
 package model.company;
 import model.person.*;
 
-import java.util.List;
-
 public class Canva extends CompanyFactory {
     public Canva() {
         super("Canva");

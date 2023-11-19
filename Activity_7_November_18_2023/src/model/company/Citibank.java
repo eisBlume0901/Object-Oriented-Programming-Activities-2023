@@ -71,7 +71,7 @@ public class Citibank extends CompanyFactory
             addJob(humanResourcesManagerJob);
             return humanResourcesManagerJob;
         }
-        else return null;
+           else return null;
     }
 
     @Override
