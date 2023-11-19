@@ -63,16 +63,5 @@ public class Citibank extends CompanyFactory
         else return null;
     }
 
-    @Override
-    public void isHiringJob(String jobType) {
-
-        for (Job job : getJobHiringPositionList())
-        {
-            if (job.toString().equalsIgnoreCase(jobType))
-            {
-                System.out.println(this.getName());
-            }
-        }
-    }
 
 }

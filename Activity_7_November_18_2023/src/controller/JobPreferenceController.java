@@ -73,7 +73,10 @@ public class JobPreferenceController
         for (CompanyFactory company : companyFactoryList) {
 
             company.offerJob(type);
-            company.isHiringJob(type);
+            for (Job job : company.getJobHiringPositionList())
+            {
+                out.println(company.getName());
+            }
         }
     }
 

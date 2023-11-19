@@ -61,20 +61,5 @@ public class Accenture extends CompanyFactory
         }
         else return null;
     }
-    @Override
-    public void isHiringJob(String jobType) {
-
-        for (Job job : getJobHiringPositionList())
-        {
-            if (job.toString().equalsIgnoreCase(jobType))
-            {
-                System.out.println(this.getName());
-            }
-            else
-            {
-                System.out.println("No " + jobType + " found in " + this.getName());
-            }
-        }
-    }
 
 }

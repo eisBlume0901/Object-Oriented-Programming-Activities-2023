@@ -37,6 +37,5 @@ public abstract class CompanyFactory
         return job;
     }
 
-    public abstract void isHiringJob(String jobType);
 
 }
