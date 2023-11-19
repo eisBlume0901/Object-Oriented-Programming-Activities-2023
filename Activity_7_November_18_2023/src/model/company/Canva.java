@@ -42,14 +42,13 @@ public class Canva extends CompanyFactory {
     }
 
     @Override
-    public String isHiringJob(String jobType) {
+    public void isHiringJob(String jobType) {
         for (Job job : getJobHiringPositionList())
         {
             if (job.toString().equalsIgnoreCase(jobType))
             {
-                return this.getName();
+                System.out.println(this.getName());
             }
         }
-        return "No " + jobType + " found in " + this.getName();
     }
 }

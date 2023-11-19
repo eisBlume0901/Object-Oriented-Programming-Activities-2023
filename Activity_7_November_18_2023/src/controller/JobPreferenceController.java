@@ -71,9 +71,9 @@ public class JobPreferenceController
         out.println();
         out.println("List of Companies: ");
         for (CompanyFactory company : companyFactoryList) {
+
             company.offerJob(type);
-            String result = company.isHiringJob(type);
-            out.println(result);
+            company.isHiringJob(type);
         }
     }
 
@@ -205,7 +205,7 @@ public class JobPreferenceController
             case "Accountant":
                 accountantWork();
                 break;
-            case "Sofware Developer":
+            case "Software Developer":
                 softwareDevWork();
                 break;
             case "Human Resource Manager":
