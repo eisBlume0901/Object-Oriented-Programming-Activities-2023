@@ -57,31 +57,39 @@ public class UserInterface implements Validator
 
     public void displayAccountantJobResponsibilities()
     {
-
+        out.println("Responsibilities");
     }
 
     public void displaySoftwareDeveloperJobResponsibilities()
     {
-
+        out.println("Requirements");
     }
 
     public void displayHumanResourcesManagerJobResponsibilities()
     {
+
         out.println("Responsibilities: Developing and implementing HR strategies and initiatives aligned with the overall business strategy, managing the recruitment and selection process, supporting current and future business needs through the development, engagement, motivation and preservation of human capital, nurturing a positive working environment, overseeing and managing a performance appraisal system that drives high performance, ensuring legal compliance throughout human resource management.");
+
+        out.println("Responsibilities");
+
+
     }
 
     public void displayAccountantJobRequirements()
     {
+        out.println("Requirements");
 
     }
 
     public void displaySoftwareDeveloperJobRequirements()
     {
+        out.println("Responsibilities");
 
     }
 
     public void displayHumanResourcesManagerRequirements()
     {
+        out.println("Requirements");
 
     }
 }

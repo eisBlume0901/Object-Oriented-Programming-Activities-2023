@@ -42,15 +42,5 @@ public class PBCOM extends CompanyFactory{
         else return null;
     }
 
-    @Override
-    public String isHiringJob(String jobType) {
-        for (Job job : getJobHiringPositionList())
-        {
-            if (job.toString().equalsIgnoreCase(jobType))
-            {
-                return this.getName();
-            }
-        }
-        return "No " + jobType + " found in " + this.getName();
-    }
+
 }

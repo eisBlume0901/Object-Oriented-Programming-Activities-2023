@@ -45,6 +45,8 @@ public class Accenture extends CompanyFactory
             softwareDeveloperJob.setJobType("Software Developer");
             softwareDeveloperJob.setEducationalLevel(EducationalLevel.BACHELOR);
             softwareDeveloperJob.setRequirements("Computer Science \n Computer Engineering \n Information Technology");
+
+            addJob(softwareDeveloperJob);
             addJob(softwareDeveloperJob);
             return softwareDeveloperJob;
         }
@@ -62,18 +64,6 @@ public class Accenture extends CompanyFactory
             return humanResourcesManagerJob;
         }
         else return null;
-    }
-    @Override
-    public String isHiringJob(String jobType) {
-
-        for (Job job : getJobHiringPositionList())
-        {
-            if (job.toString().equalsIgnoreCase(jobType))
-            {
-                return this.getName();
-            }
-        }
-        return "No " + jobType + " found in " + this.getName();
     }
 
 }

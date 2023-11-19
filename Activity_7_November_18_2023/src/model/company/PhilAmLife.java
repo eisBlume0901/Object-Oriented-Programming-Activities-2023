@@ -36,7 +36,11 @@ public class PhilAmLife extends CompanyFactory
         {
             Job defaultSoftwareDeveloperJob = new Job.JobBuilder()
                     .setJobType("Software Developer")
+
                     .setResponsibilities("Responsibilities: Designing algorithms and flowcharts, producing clean, efficient code based on specifications, integrating software components and third-party programs, verifying and deploying programs and systems, troubleshooting, debugging and upgrading existing software, gathering and evaluating user feedback.")
+
+                    .setResponsibilities("Coding " + this.getName())
+
                     .setRequirements("Computer Science \n Computer Engineering \n Information Technology")
                     .setEducationalLevel(EducationalLevel.BACHELOR)
                     .setJobLevel(JobLevel.ENTRY)
@@ -48,6 +52,7 @@ public class PhilAmLife extends CompanyFactory
             softwareDeveloperJob.setEducationalLevel(EducationalLevel.BACHELOR);
             softwareDeveloperJob.setRequirements("Computer Science \n Computer Engineering \n Information Technology");
 
+            addJob(softwareDeveloperJob);
             return softwareDeveloperJob;
         }
         if (jobType.equals("Human Resources Manager"))
@@ -67,16 +72,15 @@ public class PhilAmLife extends CompanyFactory
     }
 
     @Override
-    public String isHiringJob(String jobType) {
+    public void isHiringJob(String jobType) {
 
         for (Job job : getJobHiringPositionList())
         {
             if (job.toString().equalsIgnoreCase(jobType))
             {
-                return this.getName();
+                System.out.println(this.getName());
             }
         }
-        return "No " + jobType + " found in " + this.getName();
     }
 
 }

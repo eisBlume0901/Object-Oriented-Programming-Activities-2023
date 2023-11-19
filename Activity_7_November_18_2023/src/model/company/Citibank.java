@@ -36,7 +36,7 @@ public class Citibank extends CompanyFactory
         {
             Job defaultSoftwareDeveloperJob = new Job.JobBuilder()
                     .setJobType("Software Developer")
-                    .setResponsibilities("")
+                    .setResponsibilities("Coding " + this.getName())
                     .setRequirements("Computer Science \n Computer Engineering \n Information Technology")
                     .setEducationalLevel(EducationalLevel.BACHELOR)
                     .setJobLevel(JobLevel.ENTRY)
@@ -67,17 +67,5 @@ public class Citibank extends CompanyFactory
         else return null;
     }
 
-    @Override
-    public String isHiringJob(String jobType) {
-
-        for (Job job : getJobHiringPositionList())
-        {
-            if (job.toString().equalsIgnoreCase(jobType))
-            {
-                return this.getName();
-            }
-        }
-        return "No " + jobType + " found in " + this.getName();
-    }
 
 }
