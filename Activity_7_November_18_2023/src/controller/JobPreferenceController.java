@@ -209,21 +209,18 @@ public class JobPreferenceController
         accountant.generateFinancialReport();
     }
     public void softwareDevWork(){
-        softwareDev.addInvoice("01234");
-        softwareDev.recordExpense(25000);
+        softwareDev.addProject("Inventory Management System");
+        softwareDev.calculatedHoursWorked(45);
+        softwareDev.calculateOvertime(10);
+        softwareDev.jobDescription();
+        softwareDev.printTimeSheet(45);
 
-        softwareDev.printInvoiceList();
-        softwareDev.printExpenseList();
-
-        softwareDev.generateFinancialReport();
     }
     public void humanResourceManagerWork(){
-        humanResourceManager.addInvoice("56789");
-        humanResourceManager.recordExpense(18000);
-
-        humanResourceManager.printInvoiceList();
-        humanResourceManager.printExpenseList();
-
-        humanResourceManager.generateFinancialReport();
+        humanResourceManager.calculateTotalCompensation(41000);
+        humanResourceManager.printSalarySlip(25000);
+        humanResourceManager.printJobDescription();
+        humanResourceManager.calculateNetSalary(25000);
+        humanResourceManager.calculateBonus(5400);
     }
 }
