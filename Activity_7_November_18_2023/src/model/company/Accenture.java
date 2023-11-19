@@ -25,18 +25,12 @@ public class Accenture extends CompanyFactory
                     .setJobLevel(JobLevel.ENTRY)
                     .build();
 
-            System.out.println(defaultAccountantJob.getResponsibilities());
-
             Job accountantJob = defaultAccountantJob.clone();
             accountantJob = new Accountant();
             accountantJob.setJobType("Accountant");
             accountantJob.setResponsibilities("Managing and reporting financial information for " + this.getName());
             accountantJob.setRequirements("Accountancy\n Finance Management\n");
             accountantJob.setEducationalLevel(EducationalLevel.BACHELOR);
-
-            System.out.println("You are applying as an " + accountantJob.toString());
-            accountantJob.generateSalaryRange(JobLevel.ENTRY);
-
             addJob(accountantJob);
             return accountantJob;
         }

@@ -12,8 +12,7 @@ public class Main {
         jobPreferenceController.enterPersonalDetails();
         jobPreferenceController.runJobPreferenceSystem();
         jobPreferenceController.runJobLevelSystem();
-
-
+        jobPreferenceController.work();
 
 
     }

@@ -14,6 +14,7 @@ public class JobPreferenceController
     private List<CompanyFactory> companyFactoryList;
     private UserInterface userInterface;
     private Job job;
+    private Accountant accountant;
     public JobPreferenceController()
     {
         this.scanner = new Scanner(in);
@@ -21,7 +22,7 @@ public class JobPreferenceController
         this.userInterface = new UserInterface();
         this.person = new Person();
         this.companyFactoryList = new ArrayList<>();
-
+        this.accountant = new Accountant();
     }
 
 
@@ -33,6 +34,8 @@ public class JobPreferenceController
 
     public void findCompaniesBasedOnJobType(String type) {
 
+        out.println();
+        out.println("List of Companies: ");
         for (CompanyFactory company : companyFactoryList) {
             company.offerJob(type);
             String result = company.isHiringJob(type);
@@ -167,4 +170,29 @@ public class JobPreferenceController
         this.job.generateSalaryRange(jobLevel);
     }
 
+    public void work()
+    {
+        switch (person.getDesiredJob())
+        {
+            case "Accountant":
+                accountantWork();
+                break;
+            default:
+                out.println("Nothing to do");
+        }
+    }
+
+    public void accountantWork()
+    {
+        accountant.addInvoice("Invoice #001");
+        accountant.addInvoice("Invoice #002");
+
+        accountant.recordExpense(1000.0);
+        accountant.recordExpense(5000.0);
+
+        accountant.printInvoiceList();
+        accountant.printExpenseList();
+
+        accountant.generateFinancialReport();
+    }
 }
