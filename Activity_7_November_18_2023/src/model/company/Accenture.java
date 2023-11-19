@@ -19,30 +19,46 @@ public class Accenture extends CompanyFactory
         {
             Job defaultAccountantJob = new Job.JobBuilder()
                     .setJobType("Accountant")
+                    .setResponsibilities("Managing and reporting financial information for " + this.getName())
+                    .setRequirements("Accountancy\n Finance Management\n")
+                    .setEducationalLevel(EducationalLevel.BACHELOR)
+                    .setJobLevel(JobLevel.ENTRY)
                     .build();
-//            addJob(defaultAccountantJob);
+
+            System.out.println(defaultAccountantJob.getResponsibilities());
 
             Job accountantJob = defaultAccountantJob.clone();
             accountantJob = new Accountant();
             accountantJob.setJobType("Accountant");
+            accountantJob.setResponsibilities("Managing and reporting financial information for " + this.getName());
+            accountantJob.setRequirements("Accountancy\n Finance Management\n");
+            accountantJob.setEducationalLevel(EducationalLevel.BACHELOR);
 
             System.out.println("You are applying as an " + accountantJob.toString());
             accountantJob.generateSalaryRange(JobLevel.ENTRY);
+
             addJob(accountantJob);
             return accountantJob;
         }
-        else if (jobType.equals("Software Developer"))
+        if (jobType.equals("Software Developer"))
         {
-            Job softwareDeveloperJob = new Job.JobBuilder()
+            Job defaultSoftwareDeveloperJob = new Job.JobBuilder()
                     .setJobType("Software Developer")
+                    .setResponsibilities("")
+                    .setRequirements("Computer Science \n Computer Engineering \n Information Technology")
+                    .setEducationalLevel(EducationalLevel.BACHELOR)
+                    .setJobLevel(JobLevel.ENTRY)
                     .build();
-            addJob(softwareDeveloperJob);
 
-            Job softwareDevelopmentJob = new SoftwareDeveloper().clone();
+            Job softwareDeveloperJob = defaultSoftwareDeveloperJob.clone();
+            softwareDeveloperJob = new SoftwareDeveloper();
+            softwareDeveloperJob.setJobType("Software Developer");
+            softwareDeveloperJob.setEducationalLevel(EducationalLevel.BACHELOR);
+            softwareDeveloperJob.setRequirements("Computer Science \n Computer Engineering \n Information Technology");
 
             return softwareDeveloperJob;
         }
-        else if (jobType.equals("Human Resources Manager"))
+        if (jobType.equals("Human Resources Manager"))
         {
             Job humanResourcesManagerJob = new Job.JobBuilder()
                     .setJobType("Human Resources Manager")

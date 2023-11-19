@@ -5,6 +5,7 @@ public class Person
     private String name;
     private String courseName;
     private EducationalLevel educationalLevel;
+    private String desiredJob;
 
     public String getName() {
         return name;
@@ -28,5 +29,13 @@ public class Person
 
     public void setEducationalLevel(EducationalLevel educationalLevel) {
         this.educationalLevel = educationalLevel;
+    }
+
+    public String getDesiredJob() {
+        return desiredJob;
+    }
+
+    public void setDesiredJob(String desiredJob) {
+        this.desiredJob = desiredJob;
     }
 }

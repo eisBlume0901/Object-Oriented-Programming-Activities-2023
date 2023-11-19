@@ -1,16 +1,19 @@
 package view;
 
+import java.util.Scanner;
+
 public interface Validator
 {
-    default int validChoice(int userChoice, int min, int max)
+    default int validChoice(int min, int max)
     {
-        int validChoice;
+        Scanner scanner = new Scanner(System.in);
+        int userChoice;
         while (true)
         {
             try
             {
+                userChoice = Integer.parseInt(scanner.nextLine());
                 if (userChoice >= min && userChoice <= max) {
-                    validChoice = userChoice;
                     break;
                 }
                 else throw new Exception();
@@ -20,6 +23,6 @@ public interface Validator
                 System.out.println("Please enter a number from " + min + " to " + max + " only!");
             }
         }
-        return validChoice;
+        return userChoice;
     }
 }

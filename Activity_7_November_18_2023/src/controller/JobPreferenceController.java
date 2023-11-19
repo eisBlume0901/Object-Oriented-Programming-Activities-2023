@@ -14,9 +14,6 @@ public class JobPreferenceController
     private List<CompanyFactory> companyFactoryList;
     private UserInterface userInterface;
     private Job job;
-    private Accountant accountant;
-    private SoftwareDeveloper softwareDeveloper;
-    private HumanResourcesManager humanResourcesManager;
     public JobPreferenceController()
     {
         this.scanner = new Scanner(in);
@@ -24,9 +21,6 @@ public class JobPreferenceController
         this.userInterface = new UserInterface();
         this.person = new Person();
         this.companyFactoryList = new ArrayList<>();
-        this.accountant = new Accountant();
-        this.softwareDeveloper = new SoftwareDeveloper();
-        this.humanResourcesManager = new HumanResourcesManager();
 
     }
 
@@ -46,7 +40,10 @@ public class JobPreferenceController
         }
     }
 
-    public void findJobFromACompany(String companyName, String jobName)
+    public void findJobFromACompany(String companyName,
+                                    String jobName,
+                                    EducationalLevel educationalLevel,
+                                    String requirement)
     {
         for (CompanyFactory company : companyFactoryList)
         {
@@ -58,27 +55,26 @@ public class JobPreferenceController
                 {
                     if (job.toString().equalsIgnoreCase(jobName))
                     {
-                        out.println(companyName + " is hiring " + jobName);
-                        getJobTypeObject(jobName);
+                        this.job = job;
+                        out.println(jobName + " is available at " + company.getName());
+                        if (job.getEducationalLevel().equals(educationalLevel)
+                        && job.getRequirements().contains(requirement))
+                        {
+                            out.println("You match the job requirements offered by " + company.getName());
+                            break;
+                        }
                     }
+                    else out.println(company.getName() + " does not have a job for " + jobName);
                 }
             }
+            else out.println(companyName + " is not found in the system");
         }
     }
 
-    public void getJobTypeObject(String jobType)
-    {
-        switch(jobType)
-        {
-            case "Accountant": this.job = accountant;
-            case "Software Developer": this.job = softwareDeveloper;
-            default: this.job = humanResourcesManager;
-        }
-    }
 
     public String getCourseName()
     {
-        int userChoice = userInterface.validChoice(Integer.parseInt(scanner.nextLine()), 1, 8);
+        int userChoice = userInterface.validChoice(1, 8);
         switch(userChoice)
         {
             case 1: return "Accountancy";
@@ -95,7 +91,7 @@ public class JobPreferenceController
 
     public EducationalLevel getEducationalLevel()
     {
-        int userChoice = userInterface.validChoice(Integer.parseInt(scanner.nextLine()), 1, 3);
+        int userChoice = userInterface.validChoice(1, 3);
 
         switch (userChoice)
         {
@@ -108,7 +104,7 @@ public class JobPreferenceController
     public JobLevel getJobLevelBeingApplied()
     {
         userInterface.displayJobLevel();
-        int userChoice = userInterface.validChoice(Integer.parseInt(scanner.nextLine()), 1, 3);
+        int userChoice = userInterface.validChoice(1, 3);
 
         switch (userChoice)
         {
@@ -139,18 +135,21 @@ public class JobPreferenceController
         addAllCompanies();
         userInterface.displayJobType();
 
-        int userChoice = userInterface.validChoice(Integer.parseInt(scanner.nextLine()), 1, 3);
+        int userChoice = userInterface.validChoice(1, 3);
 
         switch (userChoice)
         {
             case 1:
                 findCompaniesBasedOnJobType("Accountant");
+                person.setDesiredJob("Accountant");
                 break;
             case 2:
                 findCompaniesBasedOnJobType("Software Developer");
+                person.setDesiredJob("Software Developer");
                 break;
             case 3:
                 findCompaniesBasedOnJobType("Human Resources Manager");
+                person.setDesiredJob("Human Resources Manager");
                 break;
             default:
                 out.println("Invalid job type");
@@ -160,12 +159,12 @@ public class JobPreferenceController
 
     public void runJobLevelSystem()
     {
-        out.println("What job? ");
-        String jobType = scanner.nextLine();
-        findJobFromACompany("Accenture", "Accountant");
-        this.job.setJobLevel(getJobLevelBeingApplied());
-
-        this.job.generateSalaryRange(this.job.getJobLevel());
+        out.println("Which company you would like to apply? ");
+        String companyName = scanner.nextLine();
+        JobLevel jobLevel = getJobLevelBeingApplied();
+        findJobFromACompany(companyName, person.getDesiredJob(), person.getEducationalLevel(), person.getCourseName());
+        out.println(this.job.getJobType());
+        this.job.generateSalaryRange(jobLevel);
     }
 
 }

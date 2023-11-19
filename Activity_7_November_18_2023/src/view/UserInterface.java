@@ -5,12 +5,6 @@ import static java.lang.System.*;
 
 public class UserInterface implements Validator
 {
-    private Scanner scanner;
-    public UserInterface()
-    {
-        this.scanner = new Scanner(in);
-    }
-
     public void displayAskUserDetails()
     {
         out.println("What is your name?");
