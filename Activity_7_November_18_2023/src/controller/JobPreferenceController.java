@@ -178,6 +178,8 @@ public class JobPreferenceController
             case 1:
                 findCompaniesBasedOnJobType("Accountant");
                 person.setDesiredJob("Accountant");
+                userInterface.displayAccountantJobResponsibilities();
+
                 break;
             case 2:
                 findCompaniesBasedOnJobType("Software Developer");

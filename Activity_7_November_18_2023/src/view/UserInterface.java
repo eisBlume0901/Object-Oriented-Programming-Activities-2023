@@ -57,31 +57,35 @@ public class UserInterface implements Validator
 
     public void displayAccountantJobResponsibilities()
     {
-
+        out.println("Responsibilities");
     }
 
     public void displaySoftwareDeveloperJobResponsibilities()
     {
-
+        out.println("Requirements");
     }
 
     public void displayHumanResourcesManagerJobResponsibilities()
     {
+        out.println("Responsibilities");
 
     }
 
     public void displayAccountantJobRequirements()
     {
+        out.println("Requirements");
 
     }
 
     public void displaySoftwareDeveloperJobRequirements()
     {
+        out.println("Responsibilities");
 
     }
 
     public void displayHumanResourcesManagerRequirements()
     {
+        out.println("Requirements");
 
     }
 }
