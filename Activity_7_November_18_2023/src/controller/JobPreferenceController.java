@@ -13,8 +13,10 @@ public class JobPreferenceController
     private Person person;
     private List<CompanyFactory> companyFactoryList;
     private UserInterface userInterface;
-
     private Job job;
+    private Accountant accountant;
+    private SoftwareDeveloper softwareDeveloper;
+    private HumanResourcesManager humanResourcesManager;
     public JobPreferenceController()
     {
         this.scanner = new Scanner(in);
@@ -22,6 +24,10 @@ public class JobPreferenceController
         this.userInterface = new UserInterface();
         this.person = new Person();
         this.companyFactoryList = new ArrayList<>();
+        this.accountant = new Accountant();
+        this.softwareDeveloper = new SoftwareDeveloper();
+        this.humanResourcesManager = new HumanResourcesManager();
+
     }
 
 
@@ -50,12 +56,23 @@ public class JobPreferenceController
 
                 for (Job job : jobs)
                 {
-                    if (job.getJobType().equalsIgnoreCase(jobName))
+                    if (job.toString().equalsIgnoreCase(jobName))
                     {
-                        this.job = job;
+                        out.println(companyName + " is hiring " + jobName);
+                        getJobTypeObject(jobName);
                     }
                 }
             }
+        }
+    }
+
+    public void getJobTypeObject(String jobType)
+    {
+        switch(jobType)
+        {
+            case "Accountant": this.job = accountant;
+            case "Software Developer": this.job = softwareDeveloper;
+            default: this.job = humanResourcesManager;
         }
     }
 
@@ -146,9 +163,9 @@ public class JobPreferenceController
         out.println("What job? ");
         String jobType = scanner.nextLine();
         findJobFromACompany("Accenture", "Accountant");
-        this.job = new Job.JobBuilder().setJobLevel(getJobLevelBeingApplied()).build();
-        out.println(this.job.getJobLevel());
+        this.job.setJobLevel(getJobLevelBeingApplied());
 
+        this.job.generateSalaryRange(this.job.getJobLevel());
     }
 
 }

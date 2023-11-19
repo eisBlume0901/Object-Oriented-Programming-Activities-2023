@@ -18,29 +18,52 @@ public class Job implements Cloneable, SalaryGenerator {
 
     }
 
-
     public String getJobType() {
         return jobType;
+    }
+
+    public void setJobType(String jobType) {
+        this.jobType = jobType;
     }
 
     public EducationalLevel getEducationalLevel() {
         return educationalLevel;
     }
 
+    public void setEducationalLevel(EducationalLevel educationalLevel) {
+        this.educationalLevel = educationalLevel;
+    }
+
     public JobLevel getJobLevel() {
         return jobLevel;
+    }
+
+    public void setJobLevel(JobLevel jobLevel) {
+        this.jobLevel = jobLevel;
     }
 
     public String getCourseName() {
         return courseName;
     }
 
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+
     public String getResponsibilities() {
         return responsibilities;
     }
 
+    public void setResponsibilities(String responsibilities) {
+        this.responsibilities = responsibilities;
+    }
+
     public String getRequirements() {
         return requirements;
+    }
+
+    public void setRequirements(String requirements) {
+        this.requirements = requirements;
     }
 
     public Job clone()
@@ -72,7 +95,13 @@ public class Job implements Cloneable, SalaryGenerator {
         private String requirements;
 
         public JobBuilder() {
+            /*
+            Purpose of Builder Design Pattern:
+            To allow construction of objects step by step.
 
+            Job job1 = new Job.JobBuilder().setJobType("Accountant").build();
+
+             */
         }
 
         public JobBuilder setJobType(String jobType)
