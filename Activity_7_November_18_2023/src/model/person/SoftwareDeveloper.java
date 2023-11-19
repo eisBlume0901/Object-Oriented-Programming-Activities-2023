@@ -67,4 +67,34 @@ public class SoftwareDeveloper extends Job implements SalaryGenerator
             default -> out.println("Php 40,000 - above");
         }
     }
+    public void addProject(String projectName){
+        out.println("Added project: " + projectName);
+    }
+    public void completedProject(String projectName){
+        out.println("Completed project: " + projectName);
+    }
+    public void calculatedHoursWorked(int hours){
+        out.println("Hours worked: " + hours);
+    }
+    public void calculateOvertime(int hours){
+        if(hours > 40){
+            int overtime = hours - 40;
+            out.println("Overtime hrs: " + overtime);
+        }
+        else out.println("No overtime hours");
+    }
+    public void printTimeSheet(int hours){
+        calculatedHoursWorked(hours);
+        calculateOvertime(hours);
+    }
+    public void jobDescription(){
+        SoftwareDeveloper softDev = new SoftwareDeveloper();
+        softDev.getResponsibilities();
+        softDev.getRequirements();
+    }
+
+    @Override
+    public String toString() {
+        return "SoftwareDeveloper";
+    }
 }

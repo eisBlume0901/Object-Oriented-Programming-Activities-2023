@@ -100,9 +100,6 @@ public class HumanResourcesManager extends Job implements SalaryGenerator {
 
     @Override
     public String toString() {
-        return "HumanResourcesManager{" +
-                "invoices=" + invoices +
-                ", expenses=" + expenses +
-                '}';
+        return "HumanResourcesManager";
     }
 }
